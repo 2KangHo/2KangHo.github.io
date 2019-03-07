@@ -513,15 +513,7 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-........
-
-plugins=(
-    git apt pip alias-tips
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-)
-
-........
+..........
 
 # User configuration
 prompt_context() {
