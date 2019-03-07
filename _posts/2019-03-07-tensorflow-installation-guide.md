@@ -5,8 +5,10 @@ date:   2019-03-07
 excerpt: "Guide of installing tensorflow"
 tag:
 - Ubuntu 18.04
-- tensorflow 1.13
+- Tensorflow 1.13
 - CUDA 10.1
+- cuDNN 7.5.0
+- NCCL 2.4.2
 comments: true
 ---
 
