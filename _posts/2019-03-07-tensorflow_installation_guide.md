@@ -85,3 +85,7 @@ Please specify optimization flags to use during compilation when bazel option "-
 Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
 Not configuring the WORKSPACE for Android builds.
 ```
+
+## References
+
+1. [https://github.com/tensorflow/tensorflow/issues/26150](https://github.com/tensorflow/tensorflow/issues/26150)
