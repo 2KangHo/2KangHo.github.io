@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "tensorflow installation guide"
+title:  "Tensorflow 1.13 with CUDA 10.1 Installation guide"
 date:   2019-03-07
 excerpt: "Guide of installing tensorflow"
 tag:
-- Ubuntu18.04
-- tensorflow1.13
+- Ubuntu 18.04
+- tensorflow 1.13
+- CUDA 10.1
 comments: true
 ---
 
