@@ -12,7 +12,6 @@ tag:
 comments: true
 ---
 
-
 # tensorflow installation guide
 
 ```shell
