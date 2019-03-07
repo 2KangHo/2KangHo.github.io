@@ -497,11 +497,9 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 ```
 
 5. zshrc 세팅
-
-> `vi ~/.zshrc`로 열어서 복붙  
-> 아래 나와있는 부분에서 다른부분 보고 바꾸기  
-> 여기도 복붙하면 주석과 띄어쓰기가 아래와 다르게 더 들어가므로 똑같이 되도록 빈칸과 주석 delete 잘 해주면 됨.
-
+`vi ~/.zshrc`로 열어서 복붙  
+아래 나와있는 부분에서 다른부분 보고 바꾸기  
+여기도 복붙하면 주석과 띄어쓰기가 아래와 다르게 더 들어가므로 똑같이 되도록 빈칸과 주석 delete 잘 해주면 됨.
 ```
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
