@@ -518,8 +518,6 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 ZSH_THEME="agnoster"
 ```
 
-~~
-
 ```
 plugins=(
   git apt pip
