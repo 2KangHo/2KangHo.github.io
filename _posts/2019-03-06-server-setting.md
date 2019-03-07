@@ -102,7 +102,7 @@ Built on Fri_Feb__8_19:08:17_PST_2019
 Cuda compilation tools, release 10.1, V10.1.105
 ```
 
-11. nvidia 드라이버 설치 확인 (`nvidia-smi`)
+11. nvidia 드라이버 설치 확인 (`nvidia-smi`)  
 ```
 mlvc02@mlvc02:~$ nvidia-smi
 Tue Mar  5 19:29:32 2019       
