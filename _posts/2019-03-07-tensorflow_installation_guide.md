@@ -12,6 +12,16 @@ comments: true
 
 # tensorflow installation guide
 
+```shell
+sudo cp /usr/lib/x86_64-linux-gnu/libcublas.so.10.1.0.105 /usr/local/cuda-10.1/lib64/
+sudo ln -s /usr/local/cuda-10.1/lib64/libcublas.so.10.1.0.105 /usr/local/cuda-10.1/lib64/libcublas.so.10.1
+sudo ln -s /usr/local/cuda-10.1/lib64/libcublas.so.10.1 /usr/local/cuda-10.1/lib64/libcublas.so
+sudo ln -s /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcusolver.so.10 /usr/local/cuda-10.1/lib64/libcusolver.so.10.1
+sudo ln -s /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcurand.so.10 /usr/local/cuda-10.1/lib64/libcurand.so.10.1
+sudo ln -s /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcufft.so.10 /usr/local/cuda-10.1/lib64/libcufft.so.10.1
+```
+
+
 ```
 You have bazel 0.19.2 installed.
 Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3
