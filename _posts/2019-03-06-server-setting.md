@@ -94,7 +94,6 @@ sudo reboot
 ```
 
 10. CUDA설치 확인을 위해 nvcc(NVIDIA CUDA Compiler)의 버전 확인 (`nvcc --version`)
-
 ```
 mlvc02@mlvc02:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -104,7 +103,6 @@ Cuda compilation tools, release 10.1, V10.1.105
 ```
 
 11. nvidia 드라이버 설치 확인 (`nvidia-smi`)
-
 ```
 mlvc02@mlvc02:~$ nvidia-smi
 Tue Mar  5 19:29:32 2019       
@@ -516,6 +514,24 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+
+........
+
+plugins=(
+  git apt pip
+  alias-tips
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+........
+
+# User configuration
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
 ```
 
 6. 설정되도록 `source`함.
