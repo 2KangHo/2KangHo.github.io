@@ -419,9 +419,8 @@ curl -O https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.v
 ```
 
 2. vimrc 세팅
-
->`vi ~/.vimrc`로 열어서 `i`눌러서 입력모드로 바꾼 후 복붙  
-> 복붙하면 `set backspace`부터 주석 생기는데 아래 보면서 주석 다 지워야 함.
+`vi ~/.vimrc`로 열어서 `i`눌러서 입력모드로 바꾼 후 복붙  
+복붙하면 `set backspace`부터 주석 생기는데 아래 보면서 주석 다 지워야 함.
 
 ```
 set hlsearch
