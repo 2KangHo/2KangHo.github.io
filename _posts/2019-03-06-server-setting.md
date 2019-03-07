@@ -512,9 +512,17 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
-
-..........
-
+```
+---------
+```
+plugins=(
+    git apt pip alias-tips
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+)
+```
+---------
+```
 # User configuration
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
