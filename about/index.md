@@ -7,6 +7,6 @@ comments: false
 ---
 
 ## Features
-- machine learning
-- visual computing
-- GAN
+- Machine Learning
+- Visual Computing
+- Model Compression
