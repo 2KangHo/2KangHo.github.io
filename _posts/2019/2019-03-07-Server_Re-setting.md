@@ -12,10 +12,11 @@ tag:
 comments: true
 ---
 
-# 서버 포맷 및 Ubuntu 재설치 & 필수패키지 설치
+서버 포맷 및 Ubuntu 재설치 & 필수패키지 설치
 =======
 
-## ubuntu 재설치
+ubuntu 재설치
+-------
 
 1. `Erase disk and install ubuntu 18.04.2`와 비슷한 걸로 클릭해서 포맷 및 설치를 진행
 2. 재설치 후 IP와 DNS를 수동설정한 후 네트워크 껐다 켬
@@ -25,7 +26,8 @@ comments: true
 6. `sudo vi /etc/ssh/sshd_config`를 하고 `#PORT 22`로 주석처리된 부분을 `PORT 2222`로 하여 ssh로 접속 시 port 2222로 접속 가능하게 함.
 7. `sudo service ssh start`를 하여 ssh 서비스를 실행하고 `sudo reboot`을 하여 재부팅함.
 
-## 필수 패키지 설치
+필수 패키지 설치
+-------
 
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
@@ -219,7 +221,8 @@ sudo apt update
 sudo apt install libnccl2=2.4.2-1+cuda10.1 libnccl-dev=2.4.2-1+cuda10.1
 ```
 
-## PyTorch 1.0.1 설치
+PyTorch 1.0.1 설치
+-------
 
 __모든 단계는 python2버전과 3버전 모두 실행함.__
 
@@ -244,7 +247,8 @@ sudo -H pip install torchvision
 sudo -H pip2 install torchvision
 ```
 
-## 기타 python 패키지 설치
+기타 python 패키지 설치
+-------
 
 1. tk-inter 설치
 ```shell
@@ -257,7 +261,8 @@ sudo -H pip install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn sciki
 sudo -H pip2 install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
 ```
 
-## tmux 설치
+tmux 설치
+-------
 
 1. `tmux`는 `libevent`에 의존성이 있으므로 `libevent` 먼저 설치 (19.03.06 기준 최신버전 2.1.8 - 최신버전은 다음 [링크](http://ftp.gnu.org/pub/gnu/ncurses/) 참고)
 ```shell
@@ -318,7 +323,8 @@ fi
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin:/home/mlvc01/tmux/bin"
 ```
 
-## Docker 설치
+Docker 설치
+-------
 
 [Docker 설치 방법](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository) 참고  
 아래 설치방법은 19.03.06 기준. 나중에 바뀔 수 있으니 위 링크 참조
@@ -357,7 +363,8 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ```
 
-## NVIDIA-DOCKER2 설치
+NVIDIA-DOCKER2 설치
+-------
 
 [NVIDIA-Docker 설치 방법](https://github.com/NVIDIA/nvidia-docker#quickstart) 참고  
 아래 설치방법은 19.03.06 기준. 나중에 바뀔 수 있으니 위 링크 참조
@@ -402,7 +409,8 @@ sudo pkill -SIGHUP dockerd
 sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 ```
 
-## 설치 후 세팅
+설치 후 세팅
+-------
 
 ### 1. Xorg 끄기 - 멀티유저세팅을 기본값으로 설정
 ```shell
@@ -638,7 +646,9 @@ df -h
 sudo reboot
 ```
 
-## References
+References
+-------
+
 1. [https://askubuntu.com/questions/1077061/how-do-i-install-nvidia-and-cuda-drivers-into-ubuntu](https://askubuntu.com/questions/1077061/how-do-i-install-nvidia-and-cuda-drivers-into-ubuntu)
 2. [PyTorch](https://pytorch.org/)
 3. [cuDNN](https://developer.nvidia.com/cudnn)
