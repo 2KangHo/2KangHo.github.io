@@ -140,20 +140,20 @@ Tue Mar  5 19:29:32 2019
 
 ### cuDNN 설치
 
-- cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
+1.&nbsp;cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
 {% capture images %}
     ../../posts/img/2019-03-06-server-setting_1.jpg
 {% endcapture %}
 {% include gallery images=images %}
 
-- 동의 체크하고 라이브러리 다운
+2.&nbsp;동의 체크하고 라이브러리 다운
 {% capture images %}
     ../../posts/img/2019-03-06-server-setting_2.jpg
     ../../posts/img/2019-03-06-server-setting_3.jpg
 {% endcapture %}
 {% include gallery images=images cols=2 %}
 
-1. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리들 모두 복사
+3.&nbsp;다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리들 모두 복사
 ~~~ shell
 scp -P 2222 cudnn-10.1-linux-x64-v7.5.0.56.tgz mlvc01@163.180.146.62:/home/mlvc01/
 scp -P 2222 libcudnn7_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
@@ -161,19 +161,19 @@ scp -P 2222 libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/h
 scp -P 2222 libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
 ~~~
 
-2. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 cudnn 라이브러리 압축해제
+4.&nbsp;다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 cudnn 라이브러리 압축해제
 ~~~ shell
 tar -xzvf cudnn-10.1-linux-x64-v7.5.0.56.tgz
 ~~~
 
-3. Copy the following files into the CUDA Toolkit directory, and change the file permissions.
+5.&nbsp;Copy the following files into the CUDA Toolkit directory, and change the file permissions.
 ~~~ shell
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ~~~
 
-4. `.deb` 패키지 설치 (생략가능)
+6.&nbsp;`.deb` 패키지 설치 (생략가능)
 ~~~ shell
 sudo dpkg -i libcudnn7_7.5.0.56-1+cuda10.1_amd64.deb
 sudo dpkg -i libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb
@@ -209,14 +209,14 @@ Test passed!
 
 ### NCCL 설치
 
-- NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
+1.&nbsp;NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
 
 {% capture images %}
     ../../posts/img/2019-03-06-server-setting_4.jpg
 {% endcapture %}
 {% include gallery images=images %}
 
-- 동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
+2.&nbsp;동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
 
 {% capture images %}
     ../../posts/img/2019-03-06-server-setting_5.jpg
@@ -224,12 +224,12 @@ Test passed!
 {% endcapture %}
 {% include gallery images=images cols=2 %}
 
-1. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리 복사
+3.&nbsp;다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리 복사
 ~~~ shell
 scp -P 2222 nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
 ~~~
 
-1. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 NCCL 패키지 설치 (아래의 마지막줄은 NCCL 받을때 기억해둔 명령어임.)
+4.&nbsp;다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 NCCL 패키지 설치 (아래의 마지막줄은 NCCL 받을때 기억해둔 명령어임.)
 ~~~ shell
 sudo dpkg -i nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
 sudo apt update
