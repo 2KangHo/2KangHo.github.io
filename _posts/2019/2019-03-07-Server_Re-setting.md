@@ -241,7 +241,7 @@ PyTorch 1.0.1 설치
 
 __모든 단계는 python2버전과 3버전 모두 실행함.__
 
-1. PyPI(Python Package Index) 업데이트 (python2와 python3버전 모두 업데이트)
+1.&nbsp;PyPI(Python Package Index) 업데이트 (python2와 python3버전 모두 업데이트)
 ~~~ shell
 sudo -H pip install -U pip
 sudo -H pip3 install -U pip
@@ -250,13 +250,13 @@ sudo -H pip3 install -U pip
 __위 단계를 진행하면 pip가 pip3와 같아지므로 이제 python2버전은 pip2로 실행해야 함.__  
 __따라서 앞으로 업데이트할 때도 pip2 먼저 실행해야 그대로 pip가 pip3에 링크됨.__
 
-2. PyTorch 설치
+2.&nbsp;PyTorch 설치
 ~~~ shell
 sudo -H pip install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl
 sudo -H pip2 install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl
 ~~~
 
-3. TorchVision 설치
+3.&nbsp;TorchVision 설치
 ~~~ shell
 sudo -H pip install torchvision
 sudo -H pip2 install torchvision
@@ -265,12 +265,12 @@ sudo -H pip2 install torchvision
 기타 python 패키지 설치
 -------
 
-1. tk-inter 설치
+1.&nbsp;tk-inter 설치
 ~~~ shell
 sudo apt install python-tk python3-tk
 ~~~
 
-2. 기타 머신러닝, 딥러닝 등 많이 쓰이는 패키지 설치
+2.&nbsp;기타 머신러닝, 딥러닝 등 많이 쓰이는 패키지 설치
 ~~~ shell
 sudo -H pip install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
 sudo -H pip2 install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
@@ -279,7 +279,7 @@ sudo -H pip2 install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scik
 tmux 설치
 -------
 
-1. `tmux`는 `libevent`에 의존성이 있으므로 `libevent` 먼저 설치 (19.03.06 기준 최신버전 2.1.8 - 최신버전은 다음 [링크](http://ftp.gnu.org/pub/gnu/ncurses/) 참고)
+1.&nbsp;`tmux`는 `libevent`에 의존성이 있으므로 `libevent` 먼저 설치 (19.03.06 기준 최신버전 2.1.8 - 최신버전은 다음 [링크](http://ftp.gnu.org/pub/gnu/ncurses/) 참고)
 ~~~ shell
 wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 tar -xvzf libevent-2.1.8-stable.tar.gz
@@ -291,7 +291,7 @@ cd
 rm -rf libevent-2.1.8-stable*
 ~~~
 
-2. `ncurses`에도 의존성이 있으므로 `ncurses`도 설치. (19.03.06 기준 최신버전 6.1 - 최신버전은 다음 [링크](http://libevent.org/) 참고)
+2.&nbsp;`ncurses`에도 의존성이 있으므로 `ncurses`도 설치. (19.03.06 기준 최신버전 6.1 - 최신버전은 다음 [링크](http://libevent.org/) 참고)
 ~~~ shell
 wget http://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.1.tar.gz
 tar -xvzf ncurses-6.1.tar.gz
@@ -303,12 +303,12 @@ cd
 rm -rf ncurses-6.1*
 ~~~
 
-3. `ncurses` 파일들을 `tmux/include` 폴더 안에 넣어야 tmux 빌드 시에 오류 발생 안하므로 `include`폴더로 복사
+3.&nbsp;`ncurses` 파일들을 `tmux/include` 폴더 안에 넣어야 tmux 빌드 시에 오류 발생 안하므로 `include`폴더로 복사
 ~~~ shell
 cp $HOME/tmux/include/ncurses/* $HOME/tmux/include/
 ~~~
 
-4. tmux 빌드
+4.&nbsp;tmux 빌드
 ~~~ shell
 git clone https://github.com/tmux/tmux.git $HOME/tmuxgit
 cd tmuxgit
@@ -323,7 +323,7 @@ cd
 rm -rf tmuxgit
 ~~~
 
-5. tmux PATH 환경변수 설정을 위해 `~/.profile`파일의 마지막 부분에 아래 라인 추가 (`vi ~/.profile`)
+5.&nbsp;tmux PATH 환경변수 설정을 위해 `~/.profile`파일의 마지막 부분에 아래 라인 추가 (`vi ~/.profile`)
 ~~~
 # set PATH for tmux installation
 if [ -d "$HOME/tmux/bin/" ]; then
@@ -332,7 +332,7 @@ if [ -d "$HOME/tmux/bin/" ]; then
 fi
 ~~~
 
-6. `/etc/environment`에 따옴표(`'`)안에 `:/home/mlvc01/tmux/bin` 추가 (`sudo vi /etc/environment`)
+6.&nbsp;`/etc/environment`에 따옴표(`'`)안에 `:/home/mlvc01/tmux/bin` 추가 (`sudo vi /etc/environment`)
 계정에 맞게 `mlvc03`이면 `:/home/mlvc03/tmux/bin` 추가
 ~~~
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin:/home/mlvc01/tmux/bin"
@@ -346,34 +346,34 @@ Docker 설치
 
 ### SET UP THE REPOSITORY
 
-1. Update the `apt` package index:
+1.&nbsp;Update the `apt` package index:
 ~~~ shell
 sudo apt update
 ~~~
 
-2. Install packages to allow `apt` to use a repository over HTTPS:
+2.&nbsp;Install packages to allow `apt` to use a repository over HTTPS:
 ~~~ shell
 sudo apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common
 ~~~
 
-3. Add Docker's official GPG key:
+3.&nbsp;Add Docker's official GPG key:
 ~~~ shell
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ~~~
 
-4. Use the following command to set up the __stable__ repository.
+4.&nbsp;Use the following command to set up the __stable__ repository.
 ~~~ shell
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ~~~
 
 ### INSTALL DOCKER CE
 
-1. Update the `apt` package index:
+1.&nbsp;Update the `apt` package index:
 ~~~ shell
 sudo apt update
 ~~~
 
-2. Install the latest version of Docker CE and containerd
+2.&nbsp;Install the latest version of Docker CE and containerd
 ~~~ shell
 sudo apt install docker-ce docker-ce-cli containerd.io
 ~~~
@@ -386,34 +386,34 @@ NVIDIA-DOCKER2 설치
 
 ### Add the package repositories
 
-1. Add NVIDIA-Docker's official GPG key:
+1.&nbsp;Add NVIDIA-Docker's official GPG key:
 ~~~ shell
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 ~~~
 
-2. Set Distribution
+2.&nbsp;Set Distribution
 ~~~ shell
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 ~~~
 
-3. Use the following command to set up the repository.
+3.&nbsp;Use the following command to set up the repository.
 ~~~ shell
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ~~~
 
 ### Install nvidia-docker2 and reload the Docker daemon configuration
 
-1. Update the `apt` package index:
+1.&nbsp;Update the `apt` package index:
 ~~~ shell
 sudo apt update
 ~~~
 
-2. Install the latest version of nvidia-docker2
+2.&nbsp;Install the latest version of nvidia-docker2
 ~~~ shell
 sudo apt install -y nvidia-docker2
 ~~~
 
-3. Reload the Docker daemon configuration
+3.&nbsp;Reload the Docker daemon configuration
 ~~~ shell
 sudo pkill -SIGHUP dockerd
 ~~~
@@ -434,7 +434,7 @@ sudo systemctl set-default multi-user.target
 
 ### 2. vim 세팅
 
-1. vim colorscheme 다운로드
+1.&nbsp;vim colorscheme 다운로드
 ~~~ shell
 mkdir -p ~/.vim/colors
 cd ~/.vim/colors
@@ -442,7 +442,7 @@ curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/
 curl -O https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 ~~~
 
-2. vimrc 세팅
+2.&nbsp;vimrc 세팅
 `vi ~/.vimrc`로 열어서 `i`눌러서 입력모드로 바꾼 후 복붙  
 복붙하면 `set backspace`부터 주석 생기는데 아래 보면서 주석 다 지워야 함.
 
@@ -498,29 +498,29 @@ colorscheme molokai
 
 ### 3. zsh설치
 
-1. zsh 설치
+1.&nbsp;zsh 설치
 ~~~ shell
 sudo apt install zsh
 ~~~
 
-2. 기본 셸을 zsh로 바꾸기
+2.&nbsp;기본 셸을 zsh로 바꾸기
 ~~~ shell
 chsh -s `which zsh`
 ~~~
 
-3. Oh My ZSH 설치
+3.&nbsp;Oh My ZSH 설치
 ~~~ shell
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ~~~
 
-4. zsh plugin 설치
+4.&nbsp;zsh plugin 설치
 ~~~ shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
 ~~~
 
-5. zshrc 세팅
+5.&nbsp;zshrc 세팅
 `vi ~/.zshrc`로 열어서 복붙  
 아래 나와있는 부분에서 다른부분 보고 바꾸기  
 여기도 복붙하면 주석과 띄어쓰기가 아래와 다르게 더 들어가므로 똑같이 되도록 빈칸과 주석 delete 잘 해주면 됨.
@@ -556,19 +556,19 @@ plugins=(
 이 부분은 https://github.com/2KangHo/server_format_manual#3-zsh%EC%84%A4%EC%B9%98 여기서 확인
 ~~~
 
-6. 설정되도록 `source`함.
+6.&nbsp;설정되도록 `source`함.
 ~~~ shell
 source ~/.zshrc
 ~~~
 
 ### 4. mlvcgpu 계정 추가
 
-1. skel 다운로드
+1.&nbsp;skel 다운로드
 ~~~ shell
 git clone https://github.com/2KangHo/skel.git
 ~~~
 
-2. skel 폴더에 복사 후 받은 폴더 삭제
+2.&nbsp;skel 폴더에 복사 후 받은 폴더 삭제
 ~~~ shell
 cd skel
 rm -rf .git
@@ -577,7 +577,7 @@ cd ..
 rm -rf skel
 ~~~
 
-3. mlvcgpu 계정 추가 (`sudo adduser mlvcgpu -shell /usr/bin/zsh`로 추가)
+3.&nbsp;mlvcgpu 계정 추가 (`sudo adduser mlvcgpu -shell /usr/bin/zsh`로 추가)
 ~~~ shell
 mlvc01@mlvc01:~$ sudo adduser mlvcgpu -shell /usr/bin/zsh
 Adding user `mlvcgpu' ...
@@ -598,7 +598,7 @@ Enter the new value, or press ENTER for the default
 Is the information correct? [Y/n] y
 ~~~
 
-4. `mlvgpu`계정에도 `zsh`설정을 위해 `mlvcgpu`로 접속 후 __3.zsh설치__ 의 __3.Oh My ZSH 설치__ 부터 __6.__ 까지 설정  
+4.&nbsp;`mlvgpu`계정에도 `zsh`설정을 위해 `mlvcgpu`로 접속 후 __3.zsh설치__ 의 __3.Oh My ZSH 설치__ 부터 __6.__ 까지 설정  
 이때 mlvcgpu계정으로 들어가면 z shell configuration file 설정화면이 뜨는데 그냥 `0` 입력후 엔터하고 다음 과정 진행하면 됨.
 
 ### 5. docker 유저에게 `sudo`없이 실행가능하도록 설정
@@ -610,7 +610,7 @@ sudo usermod -aG docker mlvcgpu
 
 ### 6. 하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)
 
-1. `blkid`로 하드디스크 UUID 확인
+1.&nbsp;`blkid`로 하드디스크 UUID 확인
 ~~~ shell
 mlvc01@mlvc01:~$ sudo blkid
 /dev/loop0: TYPE="squashfs"
@@ -631,12 +631,12 @@ mlvc01@mlvc01:~$ sudo blkid
 /dev/loop11: TYPE="squashfs"
 ~~~
 
-2. 마운트될 디렉토리 생성 (`/media/hdd1`)
+2.&nbsp;마운트될 디렉토리 생성 (`/media/hdd1`)
 ~~~ shell
 sudo mkdir -p /data
 ~~~
 
-3. 부팅 시에 자동마운트를 위해 `/etc/fstab` 파일에 마운트 정보를 추가
+3.&nbsp;부팅 시에 자동마운트를 위해 `/etc/fstab` 파일에 마운트 정보를 추가
 ~~~ shell
 sudo vi /etc/fstab
 ~~~
@@ -646,12 +646,12 @@ sudo vi /etc/fstab
 UUID=f5a90ae5-f49d-4d7d-8ab7-d1050ef911e9 /media/hdd1 ext4 defaults 0 0
 ~~~
 
-4. 마운트 내용을 적용하기 위해서 아래 명령어를 입력. (재시작하지 않아도 마운트 됨.)
+4.&nbsp;마운트 내용을 적용하기 위해서 아래 명령어를 입력. (재시작하지 않아도 마운트 됨.)
 ~~~ shell
 sudo mount -a
 ~~~
 
-5. 마운트 되었는지 확인하기 위해 아래 명령어 실행.
+5.&nbsp;마운트 되었는지 확인하기 위해 아래 명령어 실행.
 ~~~ shell
 df -h
 ~~~
