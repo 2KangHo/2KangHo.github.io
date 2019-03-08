@@ -35,7 +35,7 @@ sudo apt update && sudo apt upgrade -y
 
 2. vim 등 기본 패키지 설치
 ```shell
-sudo apt install -y vim git curl make cmake automake net-tools python-pip python3-pip
+sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
 ```
 
 ### CUDA 설치
