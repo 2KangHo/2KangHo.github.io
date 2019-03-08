@@ -3,6 +3,7 @@ layout: post
 title:  "Guide of Re-setting Server"
 date:   2019-03-07
 excerpt: "Guide of Re-setting Server"
+feature: ../../posts/feature/2019-03-07-Server_Re-setting.jpeg
 tag:
 - Ubuntu 18.04
 - CUDA 10.1
