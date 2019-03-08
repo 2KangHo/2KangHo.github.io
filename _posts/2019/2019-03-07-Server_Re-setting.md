@@ -33,11 +33,13 @@ ubuntu 재설치
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
 1. 업데이트 및 설치된 패키지 업그레이드
+
 ~~~ shell
 sudo apt update && sudo apt upgrade -y
 ~~~
 
 2. vim 등 기본 패키지 설치
+
 ~~~ shell
 sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
 ~~~
@@ -45,40 +47,49 @@ sudo apt install -y vim git curl htop make cmake automake net-tools python-pip p
 ### CUDA 설치
 
 1. cuda 설치를 위한 key 설치
+
 ~~~ shell
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 ~~~
 
 2. repo에 추가
+
 ~~~ shell
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
 ~~~
 
 3. 다시 apt update 실행
+
 ~~~ shell
 sudo apt update
 ~~~
 
 4. xserver core 파일 설치 
+
 ~~~ shell
 sudo apt install -y xserver-xorg-core
 ~~~
 
 5. nvidia driver 418버전 설치 (19.03.05 기준 cuda10.1과 호환)
+
 ~~~ shell
 sudo apt install nvidia-driver-418
 ~~~
 
 6. cuda 10.1 설치 (19.03.05 기준 driver 418버전과 호환)
+
 ~~~ shell
 sudo apt install cuda
 ~~~
+
 또는
+
 ~~~ shell
 sudo apt install cuda-10-1
 ~~~
 
 7. CUDA PATH 환경변수 설정을 위해 `~/.profile`파일의 마지막 부분에 아래 라인 추가 (`vi ~/.profile`)
+
 ~~~
 # set PATH for CUDA installation
 if [ -d "/usr/local/cuda/bin/" ]; then
@@ -88,16 +99,19 @@ fi
 ~~~
 
 8. `/etc/environment`에 따옴표(`'`)안에 `:/usr/local/cuda/bin` 추가 (`sudo vi /etc/environment`)
+
 ~~~
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin"
 ~~~
 
 9. 설치 완료를 위해 reboot
+
 ~~~ shell
 sudo reboot
 ~~~
 
 10. CUDA설치 확인을 위해 nvcc(NVIDIA CUDA Compiler)의 버전 확인 (`nvcc --version`)
+
 ~~~
 mlvc02@mlvc02:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -141,20 +155,23 @@ Tue Mar  5 19:29:32 2019
 
 ### cuDNN 설치
 
-1. cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
+- cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
 
-<figure>
-    <a href="../../posts/img/2019-03-06-server-setting_1.jpg"><img src="../../posts/img/2019-03-06-server-setting_1.jpg"></a>
-</figure>
+{% capture images %}
+    ../../posts/img/2019-03-06-server-setting_1.jpg
+{% endcapture %}
+{% include gallery images=images %}
 
-2. 동의 체크하고 라이브러리 다운
+- 동의 체크하고 라이브러리 다운
 
-<figure class="half">
-    <a href="../../posts/img/2019-03-06-server-setting_2.jpg"><img src="../../posts/img/2019-03-06-server-setting_2.jpg"></a>
-    <a href="../../posts/img/2019-03-06-server-setting_3.jpg"><img src="../../posts/img/2019-03-06-server-setting_3.jpg"></a>
-</figure>
+{% capture images %}
+    ../../posts/img/2019-03-06-server-setting_2.jpg
+    ../../posts/img/2019-03-06-server-setting_3.jpg
+{% endcapture %}
+{% include gallery images=images cols=2 %}
 
-3. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리들 모두 복사
+1. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리들 모두 복사
+
 ~~~ shell
 scp -P 2222 cudnn-10.1-linux-x64-v7.5.0.56.tgz mlvc01@163.180.146.62:/home/mlvc01/
 scp -P 2222 libcudnn7_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
@@ -162,26 +179,30 @@ scp -P 2222 libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/h
 scp -P 2222 libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
 ~~~
 
-4. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 cudnn 라이브러리 압축해제
+2. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 cudnn 라이브러리 압축해제
+
 ~~~ shell
 tar -xzvf cudnn-10.1-linux-x64-v7.5.0.56.tgz
 ~~~
 
-5. Copy the following files into the CUDA Toolkit directory, and change the file permissions.
+3. Copy the following files into the CUDA Toolkit directory, and change the file permissions.
+
 ~~~ shell
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ~~~
 
-6. `.deb` 패키지 설치 (생략가능)
+4. `.deb` 패키지 설치 (생략가능)
+
 ~~~ shell
 sudo dpkg -i libcudnn7_7.5.0.56-1+cuda10.1_amd64.deb
 sudo dpkg -i libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb
 sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
 ~~~
 
-#### cudnn 설치 확인 (`cuDNN설치`의 `6.`의 패키지 설치했을 때 확인가능)
+#### cuDNN 설치 확인 (`cuDNN설치`의 `6.`의 패키지 설치했을 때 확인가능)
+
 1. Copy the cuDNN sample to a writable path.
 ~~~ shell
 cp -r /usr/src/cudnn_samples_v7/ $HOME
@@ -195,7 +216,7 @@ cd  $HOME/cudnn_samples_v7/mnistCUDNN
 3. Compile the mnistCUDNN sample.
 ~~~ shell
 make clean && make
-
+~~~
 
 4. Run the mnistCUDNN sample.
 ~~~ shell
@@ -209,25 +230,27 @@ Test passed!
 
 ### NCCL 설치
 
-1. NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
-    {% capture images %}
-        ../../posts/img/2019-03-06-server-setting_4.jpg
-    {% endcapture %}
-    {% include gallery images=images %}
+- NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
 
-2. 동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
-    {% capture images %}
-        ../../posts/img/2019-03-06-server-setting_5.jpg
-        ../../posts/img/2019-03-06-server-setting_6.jpg
-    {% endcapture %}
-    {% include gallery images=images cols=2 %}
+{% capture images %}
+    ../../posts/img/2019-03-06-server-setting_4.jpg
+{% endcapture %}
+{% include gallery images=images %}
 
-3. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리 복사
+- 동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
+
+{% capture images %}
+    ../../posts/img/2019-03-06-server-setting_5.jpg
+    ../../posts/img/2019-03-06-server-setting_6.jpg
+{% endcapture %}
+{% include gallery images=images cols=2 %}
+
+1. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리 복사
 ~~~ shell
 scp -P 2222 nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb mlvc01@163.180.146.62:/home/mlvc01/
 ~~~
 
-4. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 NCCL 패키지 설치 (아래의 마지막줄은 NCCL 받을때 기억해둔 명령어임.)
+1. 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 NCCL 패키지 설치 (아래의 마지막줄은 NCCL 받을때 기억해둔 명령어임.)
 ~~~ shell
 sudo dpkg -i nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
 sudo apt update
