@@ -32,8 +32,7 @@ ubuntu 재설치
 
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
-1. 업데이트 및 설치된 패키지 업그레이드
-{% highlight shell %}
+1. 업데이트 및 설치된 패키지 업그레이드 {% highlight shell %}
 sudo apt update && sudo apt upgrade -y
 {% endhighlight %}
 
