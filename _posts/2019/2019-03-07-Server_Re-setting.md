@@ -32,12 +32,12 @@ ubuntu 재설치
 
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
-1. 업데이트 및 설치된 패키지 업그레이드
+1.&nbsp;업데이트 및 설치된 패키지 업그레이드
 ~~~ shell
 sudo apt update && sudo apt upgrade -y
 ~~~
 
-2. vim 등 기본 패키지 설치
+2.&nbsp;vim 등 기본 패키지 설치
 ~~~ shell
 sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
 ~~~
