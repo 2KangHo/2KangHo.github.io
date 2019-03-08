@@ -33,81 +33,81 @@ ubuntu 재설치
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
 1.&nbsp;업데이트 및 설치된 패키지 업그레이드
-{% highlight shell %}
+~~~ shell
 sudo apt update && sudo apt upgrade -y
-{% endhighlight %}
+~~~
 
 2.&nbsp;vim 등 기본 패키지 설치
-{% highlight shell %}
+~~~ shell
 sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
-{% endhighlight %}
+~~~
 
 ### CUDA 설치
 
 1.&nbsp;cuda 설치를 위한 key 설치
-{% highlight shell %}
+~~~ shell
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-{% endhighlight %}
+~~~
 
 2.&nbsp;repo에 추가
-{% highlight shell %}
+~~~ shell
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
-{% endhighlight %}
+~~~
 
 3.&nbsp;다시 apt update 실행
-{% highlight shell %}
+~~~ shell
 sudo apt update
-{% endhighlight %}
+~~~
 
 4.&nbsp;xserver core 파일 설치 
-{% highlight shell %}
+~~~ shell
 sudo apt install -y xserver-xorg-core
-{% endhighlight %}
+~~~
 
 5.&nbsp;nvidia driver 418버전 설치 (19.03.05 기준 cuda10.1과 호환)
-{% highlight shell %}
+~~~ shell
 sudo apt install nvidia-driver-418
-{% endhighlight %}
+~~~
 
 6.&nbsp;cuda 10.1 설치 (19.03.05 기준 driver 418버전과 호환)
-{% highlight shell %}
+~~~ shell
 sudo apt install cuda
-{% endhighlight %}
+~~~
 또는
-{% highlight shell %}
+~~~ shell
 sudo apt install cuda-10-1
-{% endhighlight %}
+~~~
 
 7.&nbsp;CUDA PATH 환경변수 설정을 위해 `~/.profile`파일의 마지막 부분에 아래 라인 추가 (`vi ~/.profile`)
-{% highlight %}
+~~~
 # set PATH for CUDA installation
 if [ -d "/usr/local/cuda/bin/" ]; then
     export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
     export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 fi
-{% endhighlight %}
+~~~
 
 8.&nbsp;`/etc/environment`에 따옴표(`'`)안에 `:/usr/local/cuda/bin` 추가 (`sudo vi /etc/environment`)
-{% highlight %}
+~~~
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin"
-{% endhighlight %}
+~~~
 
 9.&nbsp;설치 완료를 위해 reboot
-{% highlight shell %}
+~~~ shell
 sudo reboot
-{% endhighlight %}
+~~~
 
 10.&nbsp;CUDA설치 확인을 위해 nvcc(NVIDIA CUDA Compiler)의 버전 확인 (`nvcc --version`)
-{% highlight %}
+~~~
 mlvc02@mlvc02:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2019 NVIDIA Corporation
 Built on Fri_Feb__8_19:08:17_PST_2019
 Cuda compilation tools, release 10.1, V10.1.105
-{% endhighlight %}
+~~~
 
 11.&nbsp;nvidia 드라이버 설치 확인 (`nvidia-smi`)
-{% highlight %}
+~~~
 mlvc02@mlvc02:~$ nvidia-smi
 Tue Mar  5 19:29:32 2019
 +-----------------------------------------------------------------------------+
@@ -136,7 +136,7 @@ Tue Mar  5 19:29:32 2019
 |    3      1248      G   /usr/lib/xorg/Xorg                             9MiB |
 |    3      1361      G   /usr/bin/gnome-shell                           6MiB |
 +-----------------------------------------------------------------------------+
-{% endhighlight %}
+~~~
 
 ### cuDNN 설치
 
