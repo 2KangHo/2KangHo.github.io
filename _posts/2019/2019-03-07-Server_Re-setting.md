@@ -553,7 +553,11 @@ plugins=(
 
 ~~~
 # User configuration
-이 부분은 https://github.com/2KangHo/server_format_manual#3-zsh%EC%84%A4%EC%B9%98 여기서 확인
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
 ~~~
 
 6.&nbsp;설정되도록 `source`함.
