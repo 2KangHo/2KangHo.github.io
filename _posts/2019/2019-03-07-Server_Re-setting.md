@@ -144,19 +144,14 @@ Tue Mar  5 19:29:32 2019
 1. cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
 
 <figure>
-    <a href="../../posts/img/2019-03-06-server-setting_1.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_1.jpg"></a>
+    <a href="../../posts/img/2019-03-06-server-setting_1.jpg"><img src="../../posts/img/2019-03-06-server-setting_1.jpg"></a>
 </figure>
 
 2. 동의 체크하고 라이브러리 다운
 
-<figure>
-    <a href="../../posts/img/2019-03-06-server-setting_2.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_2.jpg"></a>
-</figure>
-<figure>
-    <a href="../../posts/img/2019-03-06-server-setting_3.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_3.jpg"></a>
+<figure class="half">
+    <a href="../../posts/img/2019-03-06-server-setting_2.jpg"><img src="../../posts/img/2019-03-06-server-setting_2.jpg"></a>
+    <a href="../../posts/img/2019-03-06-server-setting_3.jpg"><img src="../../posts/img/2019-03-06-server-setting_3.jpg"></a>
 </figure>
 
 3. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리들 모두 복사
@@ -215,21 +210,14 @@ Test passed!
 ### NCCL 설치
 
 1. NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
-
 <figure>
-    <a href="../../posts/img/2019-03-06-server-setting_4.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_4.jpg"></a>
+    <a href="../../posts/img/2019-03-06-server-setting_4.jpg"><img src="../../posts/img/2019-03-06-server-setting_4.jpg"></a>
 </figure>
 
 2. 동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
-
-<figure>
-    <a href="../../posts/img/2019-03-06-server-setting_5.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_5.jpg"></a>
-</figure>
-<figure>
-    <a href="../../posts/img/2019-03-06-server-setting_6.jpg">
-    <img src="../../posts/img/2019-03-06-server-setting_6.jpg"></a>
+<figure class="half">
+    <a href="../../posts/img/2019-03-06-server-setting_5.jpg"><img src="../../posts/img/2019-03-06-server-setting_5.jpg"></a>
+    <a href="../../posts/img/2019-03-06-server-setting_6.jpg"><img src="../../posts/img/2019-03-06-server-setting_6.jpg"></a>
 </figure>
 
 3. 다운로드 받은 디렉토리 위치에서 터미널(혹은 `cmd` 등)을 열어 `scp`로 받은 라이브러리 복사
