@@ -525,6 +525,13 @@ plugins=(
 )
 ```
 
+---------
+
+```
+# User configuration
+이 부분은 https://github.com/2KangHo/server_format_manual#3-zsh%EC%84%A4%EC%B9%98 여기서 확인
+```
+
 6. 설정되도록 `source`함.
 ```shell
 source ~/.zshrc
