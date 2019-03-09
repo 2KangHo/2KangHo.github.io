@@ -332,7 +332,7 @@ if [ -d "$HOME/tmux/bin/" ]; then
 fi
 ~~~
 
-6.&nbsp;`/etc/environment`에 따옴표(`'`)안에 `:/home/mlvc01/tmux/bin` 추가 (`sudo vi /etc/environment`)
+6.&nbsp;`/etc/environment`에 따옴표(`'`)안에 `:/home/mlvc01/tmux/bin` 추가 (`sudo vi /etc/environment`)  
 계정에 맞게 `mlvc03`이면 `:/home/mlvc03/tmux/bin` 추가
 ~~~
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin:/home/mlvc01/tmux/bin"
@@ -551,11 +551,7 @@ plugins=(
 
 ---------
 
-~~~
-# User configuration
-~~~
-
-추가로 윗 부분은 [여기](https://github.com/2KangHo/skel/issues/2)서 확인 가능.  
+`# User configuration` 부분은 [여기](https://github.com/2KangHo/skel/issues/2)서 확인 가능.  
 (똑같이 복붙하면 됨.)
 
 6.&nbsp;설정되도록 `source`함.
