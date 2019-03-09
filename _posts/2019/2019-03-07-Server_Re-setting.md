@@ -36,12 +36,12 @@ comments: true
     - [Install nvidia-docker2 and reload the Docker daemon configuration](#install-nvidia-docker2-and-reload-the-docker-daemon-configuration)
     - [Test nvidia-smi with the latest official CUDA image](#test-nvidia-smi-with-the-latest-official-cuda-image)
 - [설치 후 세팅](#설치-후-세팅)
-    - [Xorg 끄기 (멀티유저세팅을 기본값으로 설정)](#xorg-끄기-(멀티유저세팅을-기본값으로-설정))
+    - [Xorg 끄기](#xorg-끄기)
     - [vim 세팅](#vim-세팅)
     - [zsh 설치](#zsh-설치)
     - [mlvcgpu 계정 추가](#mlvcgpu-계정-추가)
-    - [Docker 유저에게 `sudo`없이 실행가능하도록 설정](#docker-유저에게-`sudo`없이-실행가능하도록-설정)
-    - [하드디스크 마운트 (1,2,3번 서버만)](#하드디스크-마운트-(1,2,3번-서버만))
+    - [Docker 유저 sudo없이 실행가능하도록 설정](#docker-유저-sudo없이-실행가능하도록-설정)
+    - [하드디스크 Mount](#하드디스크-Mount)
     - [모든 설정 안전하게 되었는지 확인을 위해 리부팅](#모든-설정-안전하게-되었는지-확인을-위해-리부팅)
 - [References](#references)
 
@@ -279,7 +279,7 @@ sudo apt install libnccl2=2.4.2-1+cuda10.1 libnccl-dev=2.4.2-1+cuda10.1
 
 ## PyTorch 1.0.1 설치
 
-__모든 단계는 python2버전과 3버전 모두 실행함.__
+모든 단계는 `python2`와 `python3`에서 모두 실행함.
 
 1.&nbsp;PyPI(Python Package Index) 업데이트 (python2와 python3버전 모두 업데이트)
 ~~~ shell
@@ -287,8 +287,8 @@ sudo -H pip install -U pip
 sudo -H pip3 install -U pip
 ~~~
 
-__위 단계를 진행하면 pip가 pip3와 같아지므로 이제 python2버전은 pip2로 실행해야 함.__  
-__따라서 앞으로 업데이트할 때도 pip2 먼저 실행해야 그대로 pip가 pip3에 링크됨.__
+위 단계를 진행하면 `pip`가 `pip3`에 링크되어 같은 명령어로 쓸 수 있어 이제 `python2`버전은 `pip2`로 실행해야 함.  
+따라서 앞으로 업데이트할 때도 `pip2` 먼저 실행해야 그대로 `pip`가 `pip3`에 링크됨.
 
 2.&nbsp;PyTorch 설치
 ~~~ shell
@@ -472,7 +472,9 @@ sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 
 ## 설치 후 세팅
 
-### Xorg 끄기 (멀티유저세팅을 기본값으로 설정)
+### Xorg 끄기
+
+여기서는 멀티유저세팅을 기본값으로 설정하여 재부팅 시 Xorg를 사용하지 않게 한다.
 
 ~~~ shell
 sudo systemctl set-default multi-user.target
@@ -645,7 +647,7 @@ Is the information correct? [Y/n] y
 4.&nbsp;`mlvgpu`계정에도 `zsh`설정을 위해 `mlvcgpu`로 접속 후 __3.zsh설치__ 의 __3.Oh My ZSH 설치__ 부터 __6.__ 까지 설정  
 이때 mlvcgpu계정으로 들어가면 z shell configuration file 설정화면이 뜨는데 그냥 `0` 입력후 엔터하고 다음 과정 진행하면 됨.
 
-### Docker 유저에게 `sudo`없이 실행가능하도록 설정
+### Docker 유저 sudo없이 실행가능하도록 설정
 
 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 실행  
 ~~~ shell
@@ -653,7 +655,11 @@ sudo usermod -aG docker $USER
 sudo usermod -aG docker mlvcgpu
 ~~~
 
-### 하드디스크 마운트 (1,2,3번 서버만)
+### 하드디스크 Mount
+
+_이 항목은 __1, 2, 3번__ 서버만 하면 된다._  
+_다른 서버들은 현재 하드디스크가 달려있지 않기 때문._  
+_추후 NAS 구매시 이 항목은 필요 없으므로 삭제할 예정이다._
 
 1.&nbsp;`blkid`로 하드디스크 UUID 확인
 ~~~ shell
