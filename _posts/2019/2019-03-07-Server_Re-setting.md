@@ -13,11 +13,37 @@ tag:
 comments: true
 ---
 
-서버 포맷 및 Ubuntu 재설치 & 필수패키지 설치
-=======
+# 서버 포맷 및 Ubuntu 재설치 & 필수패키지 설치
 
-ubuntu 재설치
--------
+## Index
+
+- [Ubuntu 재설치 및 ssh 설정](##ubuntu-재설치-및-ssh-설정)
+- [필수 패키지 설치](##필수-패키지-설치)
+- [CUDA 설치](##cuda-설치)
+- [cuDNN 설치](##cudnn-설치)
+    - [cuDNN 설치 확인](###cudnn-설치-확인)
+- [NCCL 설치](##nccl-설치)
+- [PyTorch 1.0.1 설치](##pytorch-1.0.1-설치)
+- [기타 python 패키지 설치](##기타-python-패키지-설치)
+- [tmux 설치](##tmux-설치)
+- [Docker 설치](##Docker-설치)
+    - [SET UP THE REPOSITORY](###set-up-the-repository)
+    - [INSTALL DOCKER CE](###install-docker-ce)
+- [NVIDIA-DOCKER2 설치](##NVIDIA-DOCKER2-설치)
+    - [Add the package repositories](###add-the-package-repositories)
+    - [Install nvidia-docker2 and reload the Docker daemon configuration](###install-nvidia-docker2-and-reload-the-docker-daemon-configuration)
+    - [Test nvidia-smi with the latest official CUDA image](###test-nvidia-smi-with-the-latest-official-cuda-image)
+- [설치 후 세팅](##설치-후-세팅)
+    - [Xorg 끄기 (멀티유저세팅을 기본값으로 설정)](###xorg-끄기-(멀티유저세팅을-기본값으로-설정))
+    - [vim 세팅](###vim-세팅)
+    - [zsh 설치](###zsh-설치)
+    - [mlvcgpu 계정 추가](###mlvcgpu-계정-추가)
+    - [docker 유저에게 `sudo`없이 실행가능하도록 설정](###docker-유저에게-`sudo`없이-실행가능하도록-설정)
+    - [하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)](###하드디스크-마운트(현재는-1,2,3번서버에만-달려있다.))
+    - [모든 설정 안전하게 되었는지 확인을 위해 리부팅](###모든-설정-안전하게-되었는지-확인을-위해-리부팅)
+- [References](##references)
+
+## Ubuntu 재설치 및 ssh 설정
 
 1. `Erase disk and install ubuntu 18.04.2`와 비슷한 걸로 클릭해서 포맷 및 설치를 진행
 2. 재설치 후 IP와 DNS를 수동설정한 후 네트워크 껐다 켬
@@ -27,8 +53,7 @@ ubuntu 재설치
 6. `sudo vi /etc/ssh/sshd_config`를 하고 `#PORT 22`로 주석처리된 부분을 `PORT 2222`로 하여 ssh로 접속 시 port 2222로 접속 가능하게 함.
 7. `sudo service ssh start`를 하여 ssh 서비스를 실행하고 `sudo reboot`을 하여 재부팅함.
 
-필수 패키지 설치
--------
+## 필수 패키지 설치
 
 이 부분부터는 원격으로 가능 (터미널에서 `ssh`로 접속 가능)
 
@@ -42,7 +67,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
 ~~~
 
-### CUDA 설치
+## CUDA 설치
 
 1.&nbsp;cuda 설치를 위한 key 설치
 ~~~ shell
@@ -138,7 +163,7 @@ Tue Mar  5 19:29:32 2019
 +-----------------------------------------------------------------------------+
 ~~~
 
-### cuDNN 설치
+## cuDNN 설치
 
 1.&nbsp;cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
 {% capture images %}
@@ -180,7 +205,9 @@ sudo dpkg -i libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb
 sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
 ~~~
 
-#### cuDNN 설치 확인 (`cuDNN설치`의 `4.`의 패키지 설치했을 때 확인가능)
+### cuDNN 설치 확인
+
+`cuDNN설치`의 `4.`의 패키지 설치했을 때 확인가능
 
 1. Copy the cuDNN sample to a writable path.
 ~~~ shell
@@ -207,7 +234,7 @@ make clean && make
 Test passed!
 ~~~
 
-### NCCL 설치
+## NCCL 설치
 
 1.&nbsp;NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
 
@@ -236,8 +263,7 @@ sudo apt update
 sudo apt install libnccl2=2.4.2-1+cuda10.1 libnccl-dev=2.4.2-1+cuda10.1
 ~~~
 
-PyTorch 1.0.1 설치
--------
+## PyTorch 1.0.1 설치
 
 __모든 단계는 python2버전과 3버전 모두 실행함.__
 
@@ -262,8 +288,7 @@ sudo -H pip install torchvision
 sudo -H pip2 install torchvision
 ~~~
 
-기타 python 패키지 설치
--------
+## 기타 python 패키지 설치
 
 1.&nbsp;tk-inter 설치
 ~~~ shell
@@ -276,8 +301,7 @@ sudo -H pip install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn sciki
 sudo -H pip2 install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
 ~~~
 
-tmux 설치
--------
+## tmux 설치
 
 1.&nbsp;`tmux`는 `libevent`에 의존성이 있으므로 `libevent` 먼저 설치 (19.03.06 기준 최신버전 2.1.8 - 최신버전은 다음 [링크](http://ftp.gnu.org/pub/gnu/ncurses/) 참고)
 ~~~ shell
@@ -338,8 +362,7 @@ fi
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin:/home/mlvc01/tmux/bin"
 ~~~
 
-Docker 설치
--------
+## Docker 설치
 
 [Docker 설치 방법](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository) 참고  
 아래 설치방법은 19.03.06 기준. 나중에 바뀔 수 있으니 위 링크 참조
@@ -378,8 +401,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ~~~
 
-NVIDIA-DOCKER2 설치
--------
+## NVIDIA-DOCKER2 설치
 
 [NVIDIA-Docker 설치 방법](https://github.com/NVIDIA/nvidia-docker#quickstart) 참고  
 아래 설치방법은 19.03.06 기준. 나중에 바뀔 수 있으니 위 링크 참조
@@ -424,10 +446,9 @@ sudo pkill -SIGHUP dockerd
 sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 ~~~
 
-설치 후 세팅
--------
+## 설치 후 세팅
 
-### 1. Xorg 끄기 - 멀티유저세팅을 기본값으로 설정
+### 1. Xorg 끄기 (멀티유저세팅을 기본값으로 설정)
 ~~~ shell
 sudo systemctl set-default multi-user.target
 ~~~
@@ -496,7 +517,7 @@ colorscheme molokai
 " colorscheme jellybeans
 ~~~
 
-### 3. zsh설치
+### 3. zsh 설치
 
 1.&nbsp;zsh 설치
 ~~~ shell
@@ -659,8 +680,7 @@ df -h
 sudo reboot
 ~~~
 
-References
--------
+## References
 
 1. [https://askubuntu.com/questions/1077061/how-do-i-install-nvidia-and-cuda-drivers-into-ubuntu](https://askubuntu.com/questions/1077061/how-do-i-install-nvidia-and-cuda-drivers-into-ubuntu)
 2. [PyTorch](https://pytorch.org/)
