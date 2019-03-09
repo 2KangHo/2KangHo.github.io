@@ -587,7 +587,7 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 ZSH_THEME="agnoster"
 ~~~
 
----------
+...
 
 ~~~
 plugins=(
@@ -597,7 +597,7 @@ plugins=(
 )
 ~~~
 
----------
+...
 
 `# User configuration` 부분은 [여기](https://github.com/2KangHo/skel/issues/2)서 확인 가능.  
 (똑같이 복붙하면 됨.)
