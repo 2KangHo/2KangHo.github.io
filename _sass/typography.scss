@@ -1,6 +1,6 @@
 // content area
 .content {
-	@include font-size(14);
+	@include font-size(16);
 	padding: 0 2rem;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased !important;
@@ -115,7 +115,7 @@ p code,
 li code,
 p pre,
 li pre {
-    @include font(14);
+    @include font(16);
     background-color: $color_gray;
     border: 1px solid $color_mischka;
     @include rounded(4px);
@@ -138,7 +138,7 @@ table {
     margin-top: 1.5em;
     padding: .5em 1em;
     text-indent: 0;
-    @include font-rem(14);
+    @include font-rem(16);
     background-color: $color_gray;
     border: 1px solid $color_pink_swan;
     @include rounded(3px);
