@@ -15,6 +15,8 @@ comments: true
 
 # 서버 포맷 및 Ubuntu 재설치 & 필수패키지 설치
 
+---------
+
 ## Index
 
 - [Ubuntu 재설치 및 ssh 설정](#ubuntu-재설치-및-ssh-설정)
@@ -43,6 +45,8 @@ comments: true
     - [모든 설정 안전하게 되었는지 확인을 위해 리부팅](#모든-설정-안전하게-되었는지-확인을-위해-리부팅)
 - [References](#references)
 
+---------
+
 ## Ubuntu 재설치 및 ssh 설정
 
 1. `Erase disk and install ubuntu 18.04.2`와 비슷한 걸로 클릭해서 포맷 및 설치를 진행
@@ -52,6 +56,8 @@ comments: true
 5. `sudo ufw enable`을 하여 앞서 설정한 포트로만 접속할 수 있게 방화벽을 실행한다.
 6. `sudo vi /etc/ssh/sshd_config`를 하고 `#PORT 22`로 주석처리된 부분을 `PORT 2222`로 하여 ssh로 접속 시 port 2222로 접속 가능하게 함.
 7. `sudo service ssh start`를 하여 ssh 서비스를 실행하고 `sudo reboot`을 하여 재부팅함.
+
+---------
 
 ## 필수 패키지 설치
 
@@ -66,6 +72,8 @@ sudo apt update && sudo apt upgrade -y
 ~~~ shell
 sudo apt install -y vim git curl htop make cmake automake net-tools python-pip python3-pip
 ~~~
+
+---------
 
 ## CUDA 설치
 
@@ -163,6 +171,8 @@ Tue Mar  5 19:29:32 2019
 +-----------------------------------------------------------------------------+
 ~~~
 
+---------
+
 ## cuDNN 설치
 
 1.&nbsp;cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
@@ -234,6 +244,8 @@ make clean && make
 Test passed!
 ~~~
 
+---------
+
 ## NCCL 설치
 
 1.&nbsp;NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
@@ -263,6 +275,8 @@ sudo apt update
 sudo apt install libnccl2=2.4.2-1+cuda10.1 libnccl-dev=2.4.2-1+cuda10.1
 ~~~
 
+---------
+
 ## PyTorch 1.0.1 설치
 
 __모든 단계는 python2버전과 3버전 모두 실행함.__
@@ -288,6 +302,8 @@ sudo -H pip install torchvision
 sudo -H pip2 install torchvision
 ~~~
 
+---------
+
 ## 기타 python 패키지 설치
 
 1.&nbsp;tk-inter 설치
@@ -300,6 +316,8 @@ sudo apt install python-tk python3-tk
 sudo -H pip install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
 sudo -H pip2 install dlib tqdm opencv-python numpy cvxpy scipy scikit-learn scikit-image matplotlib virtualenv
 ~~~
+
+---------
 
 ## tmux 설치
 
@@ -362,6 +380,8 @@ fi
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin:/home/mlvc01/tmux/bin"
 ~~~
 
+---------
+
 ## Docker 설치
 
 [Docker 설치 방법](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository) 참고  
@@ -400,6 +420,8 @@ sudo apt update
 ~~~ shell
 sudo apt install docker-ce docker-ce-cli containerd.io
 ~~~
+
+---------
 
 ## NVIDIA-DOCKER2 설치
 
@@ -445,6 +467,8 @@ sudo pkill -SIGHUP dockerd
 ~~~ shell
 sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 ~~~
+
+---------
 
 ## 설치 후 세팅
 
@@ -682,6 +706,8 @@ df -h
 ~~~ shell
 sudo reboot
 ~~~
+
+---------
 
 ## References
 
