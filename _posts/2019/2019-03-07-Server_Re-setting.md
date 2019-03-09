@@ -41,7 +41,7 @@ comments: true
     - [zsh 설치](#zsh-설치)
     - [mlvcgpu 계정 추가](#mlvcgpu-계정-추가)
     - [Docker 유저 sudo없이 실행가능하도록 설정](#docker-유저-sudo없이-실행가능하도록-설정)
-    - [하드디스크 Mount](#하드디스크-Mount)
+    - [하드디스크 Mount](#하드디스크-mount)
     - [모든 설정 안전하게 되었는지 확인을 위해 리부팅](#모든-설정-안전하게-되었는지-확인을-위해-리부팅)
 - [References](#references)
 
