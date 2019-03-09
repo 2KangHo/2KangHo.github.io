@@ -98,7 +98,7 @@ sudo reboot
 ~~~
 
 10.&nbsp;CUDA설치 확인을 위해 nvcc(NVIDIA CUDA Compiler)의 버전 확인 (`nvcc --version`)
-~~~
+~~~ shell
 mlvc02@mlvc02:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2019 NVIDIA Corporation
@@ -553,8 +553,10 @@ plugins=(
 
 ~~~
 # User configuration
-이 부분은 https://github.com/2KangHo/server_format_manual#3-zsh%EC%84%A4%EC%B9%98 여기서 확인
 ~~~
+
+추가로 윗 부분은 [여기](https://github.com/2KangHo/skel/issues/2)서 확인 가능.  
+(똑같이 복붙하면 됨.)
 
 6.&nbsp;설정되도록 `source`함.
 ~~~ shell
