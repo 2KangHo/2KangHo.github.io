@@ -131,7 +131,7 @@ sudo reboot
 ~~~
 
 10.&nbsp;CUDA설치 확인을 위해 nvcc(NVIDIA CUDA Compiler)의 버전 확인 (`nvcc --version`)
-~~~ shell
+~~~
 mlvc02@mlvc02:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2019 NVIDIA Corporation
@@ -217,7 +217,7 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
 
 ### cuDNN 설치 확인
 
-`cuDNN설치`의 `4.`의 패키지 설치했을 때 확인가능
+_이 부분은 __cuDNN설치__ - __6.__ 의 패키지 설치했을 때 확인가능_
 
 1. Copy the cuDNN sample to a writable path.
 ~~~ shell
@@ -279,7 +279,7 @@ sudo apt install libnccl2=2.4.2-1+cuda10.1 libnccl-dev=2.4.2-1+cuda10.1
 
 ## PyTorch 1.0.1 설치
 
-모든 단계는 `python2`와 `python3`에서 모두 실행함.
+_모든 단계는 `python2`와 `python3`에서 모두 실행함._
 
 1.&nbsp;PyPI(Python Package Index) 업데이트 (python2와 python3버전 모두 업데이트)
 ~~~ shell
@@ -287,8 +287,8 @@ sudo -H pip install -U pip
 sudo -H pip3 install -U pip
 ~~~
 
-위 단계를 진행하면 `pip`가 `pip3`에 링크되어 같은 명령어로 쓸 수 있어 이제 `python2`버전은 `pip2`로 실행해야 함.  
-따라서 앞으로 업데이트할 때도 `pip2` 먼저 실행해야 그대로 `pip`가 `pip3`에 링크됨.
+_위 단계를 진행하면 `pip`가 `pip3`에 링크되어 같은 명령어로 쓸 수 있어 이제 `python2`버전은 `pip2`로 실행해야 함._  
+_따라서 앞으로 업데이트할 때도 `pip2` 먼저 실행해야 그대로 `pip`가 `pip3`에 링크됨._
 
 2.&nbsp;PyTorch 설치
 ~~~ shell
@@ -624,7 +624,7 @@ rm -rf skel
 ~~~
 
 3.&nbsp;mlvcgpu 계정 추가 (`sudo adduser mlvcgpu -shell /usr/bin/zsh`로 추가)
-~~~ shell
+~~~
 mlvc01@mlvc01:~$ sudo adduser mlvcgpu -shell /usr/bin/zsh
 Adding user `mlvcgpu' ...
 Adding new group `mlvcgpu' (1001) ...
@@ -645,7 +645,7 @@ Is the information correct? [Y/n] y
 ~~~
 
 4.&nbsp;`mlvgpu`계정에도 `zsh`설정을 위해 `mlvcgpu`로 접속 후 __3.zsh설치__ 의 __3.Oh My ZSH 설치__ 부터 __6.__ 까지 설정  
-이때 mlvcgpu계정으로 들어가면 z shell configuration file 설정화면이 뜨는데 그냥 `0` 입력후 엔터하고 다음 과정 진행하면 됨.
+_이때 mlvcgpu계정으로 들어가면 z shell configuration file 설정화면이 뜨는데 그냥 `0` 입력후 엔터하고 다음 과정 진행하면 됨._
 
 ### Docker 유저 sudo없이 실행가능하도록 설정
 
