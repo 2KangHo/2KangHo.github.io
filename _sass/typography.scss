@@ -48,7 +48,7 @@ h3.title a {
 		padding: 10px 18px;
 		margin: 0 10px;
 		text-decoration: none;
-		background: $white;
+		background: $color_gray;
 		color: $color_shark;
 		a {
 			@include font-rem(20);
@@ -60,7 +60,6 @@ h3.title a {
             }
 		}
 		p {
-			font-weight: lighter;
 			@include font-rem(16);
 		}
 	}
@@ -115,7 +114,7 @@ p code,
 li code,
 p pre,
 li pre {
-    @include font(15);
+    @include font(14);
     background-color: $color_gray;
     border: 1px solid $color_mischka;
     @include rounded(4px);
