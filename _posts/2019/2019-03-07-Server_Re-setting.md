@@ -34,13 +34,13 @@ comments: true
     - [Install nvidia-docker2 and reload the Docker daemon configuration](#install-nvidia-docker2-and-reload-the-docker-daemon-configuration)
     - [Test nvidia-smi with the latest official CUDA image](#test-nvidia-smi-with-the-latest-official-cuda-image)
 - [설치 후 세팅](#설치-후-세팅)
-    1. [Xorg 끄기 (멀티유저세팅을 기본값으로 설정)](#1.-xorg-끄기-(멀티유저세팅을-기본값으로-설정))
-    2. [vim 세팅](#2.-vim-세팅)
-    3. [zsh 설치](#3.-zsh-설치)
-    4. [mlvcgpu 계정 추가](#4.-mlvcgpu-계정-추가)
-    5. [docker 유저에게 `sudo`없이 실행가능하도록 설정](#5.-docker-유저에게-`sudo`없이-실행가능하도록-설정)
-    6. [하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)](#6.-하드디스크-마운트(현재는-1,2,3번서버에만-달려있다.))
-    7. [모든 설정 안전하게 되었는지 확인을 위해 리부팅](#7.-모든-설정-안전하게-되었는지-확인을-위해-리부팅)
+    - [Xorg 끄기 (멀티유저세팅을 기본값으로 설정)](#xorg-끄기-(멀티유저세팅을-기본값으로-설정))
+    - [vim 세팅](#vim-세팅)
+    - [zsh 설치](#zsh-설치)
+    - [mlvcgpu 계정 추가](#mlvcgpu-계정-추가)
+    - [Docker 유저에게 `sudo`없이 실행가능하도록 설정](#docker-유저에게-`sudo`없이-실행가능하도록-설정)
+    - [하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)](#하드디스크-마운트(현재는-1,2,3번서버에만-달려있다.))
+    - [모든 설정 안전하게 되었는지 확인을 위해 리부팅](#모든-설정-안전하게-되었는지-확인을-위해-리부팅)
 - [References](#references)
 
 ## Ubuntu 재설치 및 ssh 설정
@@ -448,13 +448,13 @@ sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 
 ## 설치 후 세팅
 
-### 1.&nbsp;Xorg 끄기 (멀티유저세팅을 기본값으로 설정)
+### Xorg 끄기 (멀티유저세팅을 기본값으로 설정)
 
 ~~~ shell
 sudo systemctl set-default multi-user.target
 ~~~
 
-### 2.&nbsp;vim 세팅
+### vim 세팅
 
 1.&nbsp;vim colorscheme 다운로드
 ~~~ shell
@@ -518,7 +518,7 @@ colorscheme molokai
 " colorscheme jellybeans
 ~~~
 
-### 3.&nbsp;zsh 설치
+### zsh 설치
 
 1.&nbsp;zsh 설치
 ~~~ shell
@@ -581,7 +581,7 @@ plugins=(
 source ~/.zshrc
 ~~~
 
-### 4.&nbsp;mlvcgpu 계정 추가
+### mlvcgpu 계정 추가
 
 1.&nbsp;skel 다운로드
 ~~~ shell
@@ -621,7 +621,7 @@ Is the information correct? [Y/n] y
 4.&nbsp;`mlvgpu`계정에도 `zsh`설정을 위해 `mlvcgpu`로 접속 후 __3.zsh설치__ 의 __3.Oh My ZSH 설치__ 부터 __6.__ 까지 설정  
 이때 mlvcgpu계정으로 들어가면 z shell configuration file 설정화면이 뜨는데 그냥 `0` 입력후 엔터하고 다음 과정 진행하면 됨.
 
-### 5.&nbsp;docker 유저에게 `sudo`없이 실행가능하도록 설정
+### Docker 유저에게 `sudo`없이 실행가능하도록 설정
 
 다시 sudoer계정(i.e. `mlvc01`) 으로 접속 후 실행  
 ~~~ shell
@@ -629,7 +629,7 @@ sudo usermod -aG docker $USER
 sudo usermod -aG docker mlvcgpu
 ~~~
 
-### 6.&nbsp;하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)
+### 하드디스크 마운트(현재는 1,2,3번서버에만 달려있다.)
 
 1.&nbsp;`blkid`로 하드디스크 UUID 확인
 ~~~ shell
@@ -677,7 +677,7 @@ sudo mount -a
 df -h
 ~~~
 
-### 7.&nbsp;모든 설정 안전하게 되었는지 확인을 위해 리부팅
+### 모든 설정 안전하게 되었는지 확인을 위해 리부팅
 
 ~~~ shell
 sudo reboot
