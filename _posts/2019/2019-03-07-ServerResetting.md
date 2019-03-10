@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Guide of Re-setting Server"
+title:  "Guide of Resetting Server"
 date:   2019-03-07
-excerpt: "Guide of Re-setting Server"
+excerpt: "Guide of Resetting Server"
 feature: ../../posts/feature/2019-03-07-Server_Re-setting.jpeg
 tag:
 - Ubuntu 18.04
@@ -120,7 +120,7 @@ if [ -d "/usr/local/cuda/bin/" ]; then
 fi
 ~~~
 
-8.&nbsp;`/etc/environment`에 따옴표(`'`)안에 `:/usr/local/cuda/bin` 추가 (`sudo vi /etc/environment`)
+8.&nbsp;`/etc/environment`에 큰 따옴표(`"`)안에 `:/usr/local/cuda/bin` 추가 (`sudo vi /etc/environment`)
 ~~~
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/cuda/bin"
 ~~~
@@ -177,14 +177,14 @@ Tue Mar  5 19:29:32 2019
 
 1.&nbsp;cuDNN 설치를 위해 본인 컴퓨터에서 [cuDNN 사이트](https://developer.nvidia.com/cudnn) 접속 후 로그인하고 다운로드 버튼 클릭
 {% capture images %}
-    ../../posts/img/2019-03-06-server-setting_1.jpg
+    ../../posts/img/2019-03-06-ServerResetting/1.jpg
 {% endcapture %}
 {% include gallery images=images %}
 
 2.&nbsp;동의 체크하고 라이브러리 다운
 {% capture images %}
-    ../../posts/img/2019-03-06-server-setting_2.jpg
-    ../../posts/img/2019-03-06-server-setting_3.jpg
+    ../../posts/img/2019-03-06-ServerResetting/2.jpg
+    ../../posts/img/2019-03-06-ServerResetting/3.jpg
 {% endcapture %}
 {% include gallery images=images cols=2 %}
 
@@ -251,15 +251,15 @@ Test passed!
 1.&nbsp;NCCL 설치를 위해 본인 컴퓨터에서 [NCCL 사이트](https://developer.nvidia.com/nccl) 접속 후 로그인하고 다운로드 버튼 클릭
 
 {% capture images %}
-    ../../posts/img/2019-03-06-server-setting_4.jpg
+    ../../posts/img/2019-03-06-ServerResetting/4.jpg
 {% endcapture %}
 {% include gallery images=images %}
 
 2.&nbsp;동의 체크하고 라이브러리 다운 (cuda버전에 맞게 잘 다운 받고 아래 명령어 기억)
 
 {% capture images %}
-    ../../posts/img/2019-03-06-server-setting_5.jpg
-    ../../posts/img/2019-03-06-server-setting_6.jpg
+    ../../posts/img/2019-03-06-ServerResetting/5.jpg
+    ../../posts/img/2019-03-06-ServerResetting/6.jpg
 {% endcapture %}
 {% include gallery images=images cols=2 %}
 
