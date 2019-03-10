@@ -140,9 +140,6 @@ figure {
     margin-bottom: 10px;
     @include rounded(4px);
   }
-  figcaption {
-    clear: center;
-  }
   &.half {
     @media only screen and (min-width: 62.5em) {
       img {
@@ -152,7 +149,7 @@ figure {
         margin-right: 1px;
       }
       figcaption {
-        clear: center;
+        clear: left;
       }
     }
   }
@@ -165,7 +162,7 @@ figure {
         margin-right: 1px;
       }
       figcaption {
-        clear: center;
+        clear: left;
       }
     }
   }
