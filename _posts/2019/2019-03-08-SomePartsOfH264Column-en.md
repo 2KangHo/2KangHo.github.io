@@ -3,7 +3,7 @@ layout: post
 title:  "Some Parts of H.264 Column - English Ver."
 date:   2019-03-08
 excerpt: "Some parts of H.264 Column (English Version)"
-feature: ../../posts/feature/2019-03-08-SomePartsOfH264Column.jpeg
+feature: ../../posts/feature/2019-03-08-SomePartsOfH264Column.jpg
 tag:
 - H.264
 - AVC
@@ -40,7 +40,7 @@ comments: true
 {% capture images %}
     ../../posts/img/2019-03-08-SomePartsOfH264Column/Fig3.png
 {% endcapture %}
-{% include gallery images=images %}
+{% include gallery images=images caption="Figure 3. Generalized block diagram of a hybrid video encoder with motion compensation: The adaptive deblocking filter and intra-frame prediction are two new tools of H.264." %}
 
 &nbsp;&nbsp;&nbsp;&nbsp;With respect to this simple block diagram (Figure 3), H.264/AVC introduces the following changes:
 
@@ -52,7 +52,7 @@ comments: true
 {% capture images %}
     ../../posts/img/2019-03-08-SomePartsOfH264Column/Fig4.png
 {% endcapture %}
-{% include gallery images=images %}
+{% include gallery images=images caption="Figure 4. Generalized block diagram of a hybrid video decoder with motion compensation." %}
 
 &nbsp;&nbsp;&nbsp;&nbsp;Figure 4 shows the generalized block diagram of the corresponding decoder. The entropy decoder decodes the quantized coefficients and the motion data, which is used for the motion compensated prediction. As in the encoder, a prediction signal is obtained by intra-frame or motion compensated prediction, which is added to the inverse transformed coefficients. After deblocking filtering, the macroblock is completely decoded and stored in the memory for further predictions.  
 &nbsp;&nbsp;&nbsp;&nbsp;In H.264/AVC, the macroblocks are processed in so called slices whereas a slice is usually a group of macroblocks processed in raster scan order (see Figure 5). In special cases, which will be discussed in Section 3.6, the processing can differ from the raster scan order. Five different slice-types are supported which are I-, P-, B-, SI- and SP-slices. In an I-slice, all macroblocks are encoded in Intra mode. In a P-slice, all macroblocks are predicted using a motion compensated prediction with one reference frame and in a B-slice with two reference frames. SI- and SP-slices are specific slices that are used for an efficient switching between two different bitstreams. They are both discussed in Section 3.6.  
