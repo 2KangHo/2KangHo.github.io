@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How To Install Horovod on Ubuntu 18.04"
+title:  "How To Install Horovod with CUDA and NCCL on Ubuntu 18.04"
 date:   2019-03-14
 excerpt: "How To Install Horovod"
 feature: ../../posts/feature/2019-03-14-HowToInstallHorovod.jpg
@@ -8,15 +8,26 @@ tag:
 - Horovod
 - Multi-GPU
 - OpenMPI
+- CUDA
+- NCCL
+- Ubuntu 18.04
 comments: true
 ---
 
-# How To Install Horovod (on Ubuntu 18.04)
+# How To Install Horovod with CUDA and NCCL (on Ubuntu 18.04)
 
 ## Index
 
+- [Prerequisite](#prerequisite)
 - [Install OpenMPI](#install-openmpi)
 - [Install Horovod](#install-horovod)
+
+## Prerequisite
+
+1. NCCL
+2. CUDA
+3. NVIDIA Driver
+4. Using Mulit-GPU
 
 ## Install OpenMPI
 
