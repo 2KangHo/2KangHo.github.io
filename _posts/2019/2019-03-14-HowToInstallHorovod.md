@@ -3,7 +3,7 @@ layout: post
 title:  "How To Install Horovod with CUDA and NCCL on Ubuntu 18.04"
 date:   2019-03-14
 excerpt: "How To Install Horovod"
-feature: ../../posts/feature/2019-03-14-HowToInstallHorovod.jpg
+feature: ../../posts/feature/Horovod.png
 tag:
 - Horovod
 - Multi-GPU
