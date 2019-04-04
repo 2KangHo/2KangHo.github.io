@@ -591,7 +591,7 @@ ZSH_THEME="agnoster"
 
 ~~~
 plugins=(
-    git apt pip alias-tips
+    git pip alias-tips
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
