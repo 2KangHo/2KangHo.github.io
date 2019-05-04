@@ -684,7 +684,7 @@ mlvc01@mlvc01:~$ sudo blkid
 
 2.&nbsp;마운트될 디렉토리 생성 (`/media/hdd1`)
 ~~~ shell
-sudo mkdir -p /data
+sudo mkdir -p /media/hdd1
 ~~~
 
 3.&nbsp;부팅 시에 자동마운트를 위해 `/etc/fstab` 파일에 마운트 정보를 추가
