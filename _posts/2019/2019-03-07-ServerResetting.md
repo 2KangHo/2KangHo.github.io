@@ -308,7 +308,7 @@ sudo -H pip2 install torchvision
 
 1.&nbsp;tk-inter 설치
 ~~~ shell
-sudo apt install python-tk python3-tk
+sudo apt install python-tk python3-tk tree
 ~~~
 
 2.&nbsp;기타 머신러닝, 딥러닝 등 많이 쓰이는 패키지 설치
